@@ -7,7 +7,7 @@ from typing import Union
 from urllib.parse import unquote
 
 import aiohttp
-import ujson
+import json
 from aiohttp import ContentTypeError
 
 from smsaero.rest.exceptions import FailedDecodeJson
@@ -52,9 +52,9 @@ class HTTPClient:
 
     @staticmethod
     def __decode_json(data: Union[List, Dict[str, Any]]):
-        data_dumps = ujson.dumps(data, ensure_ascii=False)
+        data_dumps = json.dumps(data, ensure_ascii=False)
         decoded_data_str = unquote(data_dumps)
-        data_data_json = ujson.loads(decoded_data_str)
+        data_data_json = json.loads(decoded_data_str)
         return data_data_json
 
     @staticmethod
