@@ -110,14 +110,6 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
-name = "ujson"
-version = "5.5.0"
-description = "Ultra fast JSON encoder and decoder for Python"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-
-[[package]]
 name = "yarl"
 version = "1.8.1"
 description = "Yet another URL library"
@@ -132,7 +124,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "2a2f015d34665238d1c26b2ddff40ef21e02e76a1102ce5ba6527943863fec3b"
+content-hash = "b23cf419afcc960ac258ab7d04408171b9c30c2004b030ee1577665fa0acc60a"
 
 [metadata.files]
 aiohttp = []
@@ -211,5 +203,4 @@ multidict = [
 ]
 pydantic = []
 typing-extensions = []
-ujson = []
 yarl = []
