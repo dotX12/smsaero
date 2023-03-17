@@ -1,5 +1,3 @@
-from enum import Enum
 
-
-class SMSAeroURL(str, Enum):
+class SMSAeroURL:
     BASE = "gate.smsaero.ru"

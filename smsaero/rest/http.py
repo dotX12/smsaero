@@ -37,7 +37,7 @@ class HTTPClient:
         try:
             if content_type.startswith("text/plain"):
                 resp_text = await resp.text()
-                resp_json = ujson.loads(resp_text)
+                resp_json = json.loads(resp_text)
                 return self.__decode_json(resp_json), resp.status
 
             elif content_type.startswith("application/json"):
@@ -62,4 +62,5 @@ class HTTPClient:
         email: str, api_key: str, base_url: str, url: str, **kwargs
     ) -> str:
         url = f"https://{email}:{api_key}@{base_url}/{url.format(**kwargs)}"
+        print(f"DEBUG URL: {url=}")
         return url

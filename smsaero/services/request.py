@@ -1,3 +1,4 @@
+from typing import Optional
 from typing import Type
 from typing import TypeVar
 
@@ -15,7 +16,7 @@ class ServiceRequest(HTTPClient, AuthSettings):
         base_url: str,
         target_url: str,
         method: str,
-        response_model: Type[T],
+        response_model: Optional[Type[T]] = None,
         **kwargs,
     ) -> T:
         prepare_url = self._prepare_url(
@@ -26,5 +27,6 @@ class ServiceRequest(HTTPClient, AuthSettings):
             url=prepare_url,
             **kwargs,
         )
-        result_model = response_model.parse_obj(response)
-        return result_model
+        if response_model:
+            response = response_model.parse_obj(response)
+        return response
